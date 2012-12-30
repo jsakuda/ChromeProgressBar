@@ -14,10 +14,11 @@
 @class UIProgressView;
 
 @interface ChromeProgressBar : UIProgressView {
-	UIColor *_tintColor;
+//	UIColor *_tintColor;
     NSTimer *_animationTimer;
 }
 
+@property (nonatomic, retain) UIColor *tintColor;
 
 - (ChromeProgressBar *)initWithFrame:(CGRect)frame;
 

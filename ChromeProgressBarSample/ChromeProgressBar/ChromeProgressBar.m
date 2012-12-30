@@ -10,6 +10,8 @@
 
 @implementation ChromeProgressBar
 
+@synthesize tintColor;
+
 - (void)drawRect:(CGRect)rect {
         
     CGContextRef ctx = UIGraphicsGetCurrentContext();
@@ -20,7 +22,7 @@
     progressRect.size.width *= [self progress];
  
     //Fill color
-    CGContextSetFillColorWithColor(ctx, [_tintColor CGColor]);
+    CGContextSetFillColorWithColor(ctx, [tintColor CGColor]);
     CGContextFillRect(ctx, progressRect);
     
     //Hide progress with fade-out effect
@@ -57,7 +59,7 @@
 	self = [super initWithFrame:frame];
 	if(self) {
         //set bar color
-        _tintColor = [[UIColor colorWithRed:51.0f/255.0f green:153.0f/255.0f blue:255.0f/255.0f alpha:1] retain];
+        tintColor = [[UIColor colorWithRed:51.0f/255.0f green:153.0f/255.0f blue:255.0f/255.0f alpha:1] retain];
 		self.progress = 0;
 	}
     
@@ -65,7 +67,7 @@
 }
 
 - (void)dealloc {
-    [_tintColor release];
+    [tintColor release];
     [_animationTimer release];    
 	[super dealloc];
 }
